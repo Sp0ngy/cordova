@@ -19,11 +19,32 @@
 
 // Wait for the deviceready event before using any of Cordova's device APIs.
 // See https://cordova.apache.org/docs/en/latest/cordova/events/events.html#deviceready
+
+var appUrl = 'http://192.168.254.72:8080';
+
 document.addEventListener('deviceready', onDeviceReady, false);
 
 function onDeviceReady() {
-    // Cordova is now initialized. Have fun!
+    var target = '_blank';
+        var options = [
+            "location=no",
+            "clearcache=no",
+            "clearsessioncache=no",
+            "footer=no",
+            "hardwareback=no",
+            "hideurlbar=yes",
+            "zoom=no",
+            "hidenavigationbuttons=no",
+            "toolbar=yes",
+            "hidespinner=yes",
+            "toolbarcolor=#000000",
+            "toolbartranslucent=no",
+            "navigationbuttoncolor=#ffffff",
+            "closebuttoncolor=#000000",
+            "closebuttoncaption="
+        ];
 
-    console.log('Running cordova-' + cordova.platformId + '@' + cordova.version);
-    document.getElementById('deviceready').classList.add('ready');
+        browser = cordova.InAppBrowser.open(appUrl, target, "");
+
+        document.getElementById('deviceready').classList.add('ready');
 }
